@@ -11,6 +11,7 @@ import util.DataUtil;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /*
     Goal: Combine videos and bookmarks by index (StreamUtils.zip) (https://github.com/poetix/protonpack)
@@ -19,13 +20,18 @@ import java.util.stream.Collectors;
 */
 public class Kata8 {
     public static List<Map> execute() {
-        List<Movie> movies = DataUtil.getMovies();
-        List<Bookmark> bookMarks = DataUtil.getBookMarks();
+        Stream<Movie> movies = DataUtil.getMovies().stream();
+        Stream<Bookmark> bookMarks = DataUtil.getBookMarks().stream();
 
-        List<Map> combinacion = movies.stream()
-                .map(movie -> ImmutableMap.of("id", movie.getId(), "bookmarkId", bookMarks.get(movies.indexOf(movie)).getId()))
+        //Con este metodo se puede recorrer el listado de bookMarks con el indice el objeto de la lista movie
+//        List<Map> combinacion = movies.stream()
+//                .map(movie -> ImmutableMap.of("id", movie.getId(), "bookmarkId", bookMarks.get(movies.indexOf(movie)).getId()))
+//                .collect(Collectors.toList());
+        List<Map> combinacion = StreamUtils.zip(movies,
+                        bookMarks,
+                        (movie, bookMark) -> ImmutableMap.of("videoId", movie.getId(),
+                                "bookmarkId", bookMark.getId()))
                 .collect(Collectors.toList());
-
         return combinacion;
     }
 

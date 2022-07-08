@@ -14,9 +14,9 @@ import java.util.List;
 public class Kata6 {
     public static String execute() {
         List<Movie> movies = DataUtil.getMovies();
-        String longestUrl=movies.stream()
-                .map(a->a.getBoxarts())
-                .flatMap(b->b.stream().map(c->c.getUrl()))
+        String longestUrl = movies.stream()
+                .map(movie -> movie.getBoxarts())
+                .flatMap(bokArtList -> bokArtList.stream().map(url -> url.getUrl()))
                 .reduce((string1, string2) -> (string1.length() > string2.length()) ? string1 : string2)
                 .get();
 

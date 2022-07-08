@@ -21,18 +21,19 @@ public class Kata7 {
     public static List<Map> execute() {
         List<MovieList> movieLists = DataUtil.getMovieLists();
         List<Map> shortestUrlMap = movieLists.stream()
-                .map(movie -> movie.getVideos())
-                .flatMap(a -> a.stream().reduce((b, c) -> b.getUri().length() < c.getUri().length() ? b : c)
-                        .stream().map(e -> ImmutableMap.of("id", e.getId(),
-                                "title", e.getTitle(),
-                                "boxart", e.getBoxarts(),
-                                "url", e.getUri())))
+                .map(movieList -> movieList.getVideos())
+                .flatMap(video -> video.stream().reduce(
+                                (url1, url2) -> url1.getUri().length() < url2.getUri().length() ? url1 : url2)
+                        .stream().map(element -> ImmutableMap.of("id", element.getId(),
+                                "title", element.getTitle(),
+                                "boxart", element.getBoxarts(),
+                                "url", element.getUri())))
                 .collect(Collectors.toList());
 
         return shortestUrlMap;
     }
 
     public static void main(String[] args) {
-        System.out.println(execute().size());
+        System.out.println(execute());
     }
 }

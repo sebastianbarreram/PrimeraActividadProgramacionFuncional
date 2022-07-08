@@ -19,7 +19,7 @@ public class Kata2 {
         List<Movie> movies = DataUtil.getMovies();
         List<Integer> peliculasFilter = movies.stream()
                 .filter(movie -> movie.getRating() == 5)
-                .map(movie -> movie.getRating().intValue())
+                .map(movieFilter -> movieFilter.getRating().intValue())
                 .collect(Collectors.toList());
 
 //        return ImmutableList.of(1, 2, 3);
