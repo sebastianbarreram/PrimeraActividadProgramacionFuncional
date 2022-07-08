@@ -64,14 +64,14 @@ public class Kata10 {
                         list -> ImmutableMap.of("name",
                                 list.get("name"),
                                 "videos",
-                                videos.stream().map(videoMap ->
+                                videos.stream().filter(filtro->filtro.get("listId").equals(list.get(("id"))))
+                                .map(videoMap ->
                                                 ImmutableMap.of("id",
                                                         videoMap.get("id"),
                                                         "title",
                                                         videoMap.get("title")))
                                         .collect(Collectors.toList())))
                 .collect(Collectors.toList());
-        //FALTA FILTRAR EL ID DE LA LIST Y QUE SEA EL MISMO QUE EL ID ASOCIADO EN VIDEO
 
 //        return ImmutableList.of(ImmutableMap.of("name", "someName", "videos", ImmutableList.of(
 //                ImmutableMap.of("id", 5, "title", "The Chamber"),
