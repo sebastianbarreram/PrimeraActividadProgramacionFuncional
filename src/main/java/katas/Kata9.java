@@ -22,16 +22,17 @@ public class Kata9 {
         List<MovieList> movieLists = DataUtil.getMovieLists();
         List<Map> videoInfo = movieLists.stream()
                 .map(movieList -> movieList.getVideos())
-                .flatMap(video -> video.stream().reduce(
-                                (url1, url2) -> url1.getUri().length() < url2.getUri().length() ? url1 : url2)
-                        .stream().map(element -> ImmutableMap.of("id", element.getId(),
-                                "title", element.getTitle(),
-                                "middle time", element.getInterestingMoments().stream()
-                                        .filter(time -> time.getType() == "Middle")
-                                        .findFirst()
-                                        .get(),
-                                "boxart", element.getBoxarts(),
-                                "url", element.getUri())))
+                .flatMap(video -> video.stream().map(element -> ImmutableMap.of("id", element.getId(),
+                        "title", element.getTitle(),
+                        "middle time", element.getInterestingMoments().stream()
+                                .filter(time -> time.getType() == "Middle")
+                                .findFirst()
+                                .get(),
+                        "boxart", element.getBoxarts().stream()
+                                .reduce((url1, url2) ->
+                                        url1.getUrl().length() < url2.getUrl().length() ? url1 : url2)
+                                .get(),
+                        "url", element.getUri())))
                 .collect(Collectors.toList());
 
 
