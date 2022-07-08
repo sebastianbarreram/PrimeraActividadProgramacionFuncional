@@ -17,7 +17,8 @@ public class Kata3 {
     public static List<Integer> execute() {
         List<MovieList> movieLists = DataUtil.getMovieLists();
         List<Integer> peliculasFlatMap=movieLists.stream()
-                .map(movie->movie.getVideos()).flatMap(a->a.stream().map(c->c.getId()))
+                .map(movie->movie.getVideos())
+                .flatMap(a->a.stream().map(c->c.getId()))
                 .collect(Collectors.toList());
 //        return ImmutableList.of(1, 2, 3);
         return peliculasFlatMap;
