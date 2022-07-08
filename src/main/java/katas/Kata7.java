@@ -33,7 +33,7 @@ public class Kata7 {
         return shortestUrlMap;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//    }
 }

@@ -32,7 +32,7 @@ public class Kata4 {
         return movieInfo;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//    }
 }

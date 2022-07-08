@@ -23,7 +23,7 @@ public class Kata6 {
         return longestUrl;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//    }
 }

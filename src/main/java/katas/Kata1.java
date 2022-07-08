@@ -27,8 +27,8 @@ public class Kata1 {
         return listaPeliculas;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-        System.out.println(ImmutableList.of(ImmutableMap.of("id", 5, "title", "Bad Boys")));
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//        System.out.println(ImmutableList.of(ImmutableMap.of("id", 5, "title", "Bad Boys")));
+//    }
 }

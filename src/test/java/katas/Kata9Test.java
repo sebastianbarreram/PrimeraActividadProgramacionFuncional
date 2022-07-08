@@ -10,6 +10,6 @@ public class Kata9Test {
 
     @Test
     public void testExecute() {
-        Assert.assertThat(Kata9.execute().size(), equalTo(2));
+        Assert.assertThat(Kata9.execute().size(), equalTo(4));
     }
 }

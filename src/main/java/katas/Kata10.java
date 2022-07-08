@@ -80,7 +80,7 @@ public class Kata10 {
         return dataStructure;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//    }
 }

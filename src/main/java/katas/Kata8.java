@@ -35,7 +35,7 @@ public class Kata8 {
         return combinacion;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//    }
 }

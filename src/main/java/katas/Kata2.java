@@ -26,8 +26,8 @@ public class Kata2 {
         return peliculasFilter;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-        System.out.println(ImmutableList.of(1, 2, 3));
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//        System.out.println(ImmutableList.of(1, 2, 3));
+//    }
 }

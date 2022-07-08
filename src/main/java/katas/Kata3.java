@@ -24,7 +24,7 @@ public class Kata3 {
         return peliculasFlatMap;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//    }
 }

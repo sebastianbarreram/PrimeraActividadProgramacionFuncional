@@ -24,7 +24,7 @@ public class Kata5 {
         return maxRating;
     }
 
-    public static void main(String[] args) {
-        System.out.println(execute());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(execute());
+//    }
 }
