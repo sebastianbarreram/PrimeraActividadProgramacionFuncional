@@ -3,6 +3,7 @@ package katas;
 import model.Movie;
 import util.DataUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -13,7 +14,16 @@ import java.util.List;
 public class Kata6 {
     public static String execute() {
         List<Movie> movies = DataUtil.getMovies();
+        String longestUrl=movies.stream()
+                .map(a->a.getBoxarts())
+                .flatMap(b->b.stream().map(c->c.getUrl()))
+                .reduce((string1, string2) -> (string1.length() > string2.length()) ? string1 : string2)
+                .get();
 
-        return "someUrl";
+        return longestUrl;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(execute());
     }
 }

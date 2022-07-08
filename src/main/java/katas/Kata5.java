@@ -19,7 +19,7 @@ public class Kata5 {
 
         Double maxRating=movies.stream()
                 .map(a->a.getRating())
-                .reduce((a,b)->Double.max(a, b))
+                .reduce(Double::max)
                 .get();
         return maxRating;
     }
