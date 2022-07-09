@@ -68,7 +68,7 @@ public class Kata11 {
                         list -> ImmutableMap.of("name",
                                 list.get("name"),
                                 "videos",
-                                videos.stream().filter(filtro->filtro.get("listId").equals(list.get(("id"))))
+                                videos.stream().filter(filtro -> filtro.get("listId").equals(list.get(("id"))))
                                         .map(videoMap ->
                                                 ImmutableMap.of("id",
                                                         videoMap.get("id"),
@@ -76,13 +76,15 @@ public class Kata11 {
                                                         videoMap.get("title"),
                                                         "time",
                                                         bookmarkList.stream()
-                                                                .filter(filtroBookmark->filtroBookmark.get("videoId").equals(videoMap.get("id")))
-                                                                .reduce((time1,time2)->time1).get().get("time"),
+                                                                .filter(filtroBookmark -> filtroBookmark.get("videoId").equals(videoMap.get("id")))
+                                                                .reduce((time1, time2) -> time1).get().get("time"),
                                                         "boxart",
                                                         boxArts.stream()
-                                                                .filter(filtroBoxarts-> Objects.equals(filtroBoxarts.get("videoId"),videoMap.get("id")))
-                                                                .reduce((boxArt1,boxArt2)->boxArt1).get().get("url")
-                                                        ))
+                                                                .filter(filtroBoxarts -> Objects.equals(filtroBoxarts.get("videoId"), videoMap.get("id")))
+                                                                .reduce((boxArtUrl1, boxArtUrl2) -> boxArtUrl1.get("url").toString().length() < boxArtUrl2.get("url").toString().length() ?
+                                                                        boxArtUrl1 : boxArtUrl2)
+                                                                .get().get("url")
+                                                ))
                                         .collect(Collectors.toList())))
                 .collect(Collectors.toList());
 
